@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+		d:DesignWidth="560" d:DesignHeight="70"
+		Icon="/logo.png"
+		Width="560" Height="70"
+		MinWidth="560" MinHeight="70" MaxHeight="70"
+        x:Class="FostrianViewer.CustomWindow"
+        Title="Custom Stream Settings">
+	<DockPanel LastChildFill="True">
+		<Panel Height="20" DockPanel.Dock="Top" />
+		<Panel Width="20" DockPanel.Dock="Left" />
+		<Panel Width="20" DockPanel.Dock="Right" />
+		<Panel Height="20" DockPanel.Dock="Bottom" />
+		<StackPanel Orientation="Horizontal" Spacing="10">
+			<StackPanel Orientation="Horizontal" Spacing="5">
+				<TextBlock VerticalAlignment="Center" Text="Start at byte:" />
+				<NumericUpDown Name="StartByte" Increment="1" Minimum="0" Value="0" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Spacing="5">
+				<TextBlock VerticalAlignment="Center" Text="End at byte:" />
+				<NumericUpDown Name="EndByte" Increment="1" Minimum="0" Value="1000" />
+			</StackPanel>
+			<Button Content="OK" Click="OKClicked" />
+			<Button Content="Cancel" Click="CancelClicked" />
+		</StackPanel>
+	</DockPanel>
+</Window>

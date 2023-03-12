@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="850" d:DesignHeight="400"
+		Width="850" Height="400"
+		MinWidth="850" MinHeight="200"
+		x:Class="FostrianViewer.MainWindow"
+		Icon="/logo.png"
+		Title="Fostrian Viewer">
+	<DockPanel LastChildFill="True">
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="Import">
+				<MenuItem Header="Fostrian file" Click="Open_Clicked" />
+				<MenuItem Header="Fostrian file (Custom Stream)" Click="OpenCustom_Clicked" />
+				<MenuItem Header="XML file" Click="ImportXML_Clicked" />
+			</MenuItem>
+			<MenuItem Header="Save" Click="Save_Clicked" />
+			<MenuItem Header="Export">
+				<MenuItem Header="to Fostrian file" Click="SaveAs_Clicked" />
+				<MenuItem Header="to XML file" Click="ExportXML_Clicked" />
+			</MenuItem>
+			<MenuItem Header="About" Click="About_Clicked" />
+		</Menu>
+		<DockPanel>
+			<DockPanel LastChildFill="True" Margin="5" DockPanel.Dock="Top">
+				<Button Margin="5" DockPanel.Dock="Left" Content="+" Click="Plus_Clicked" />
+				<Button Margin="5" DockPanel.Dock="Left" Content="-" Click="Minus_Clicked" />
+				<TextBlock Margin="5" DockPanel.Dock="Left" VerticalAlignment="Center" Text="Encoding:" />
+				<ComboBox Margin="5" DockPanel.Dock="Left" Name="cbEncoding" VerticalAlignment="Center" SelectionChanged="Encoding_Changed" SelectedIndex="0">
+					<ComboBoxItem Content="UTF-16 LE" />
+					<ComboBoxItem Content="UTF-16 BE" />
+					<ComboBoxItem Content="UTF-32 LE" />
+					<ComboBoxItem Content="UTF-32 BE" />
+					<ComboBoxItem Content="US-ASCII" />
+					<ComboBoxItem Content="ISO" />
+					<ComboBoxItem Content="UTF-8" />
+				</ComboBox>
+				<TextBlock Margin="5" DockPanel.Dock="Left" VerticalAlignment="Center" Text="Name:" />
+				<TextBox Margin="5" DockPanel.Dock="Left" Name="tbName" VerticalAlignment="Center" TextChanged="Name_Changed" />
+				<TextBlock Margin="5" DockPanel.Dock="Left" VerticalAlignment="Center" Text="Type:" />
+				<ComboBox Margin="5" DockPanel.Dock="Left" Name="cbType" VerticalAlignment="Center" SelectionChanged="Type_Changed" SelectedIndex="0">
+					<ComboBoxItem Content="Boolean" />
+					<ComboBoxItem Content="Character" />
+					<ComboBoxItem Content="16-bit Integer" />
+					<ComboBoxItem Content="Unsigned 16-bit Integer" />
+					<ComboBoxItem Content="32-bit Integer" />
+					<ComboBoxItem Content="Unsigned 32-bit Integer" />
+					<ComboBoxItem Content="64-bit Integer" />
+					<ComboBoxItem Content="Unsigned 64-bit Integer" />
+					<ComboBoxItem Content="Float" />
+					<ComboBoxItem Content="Double" />
+					<ComboBoxItem Content="String" />
+				</ComboBox>
+				<TextBlock VerticalAlignment="Center" Text="Lock: " />
+				<ToggleSwitch Name="LockType" OffContent="Optimize" OnContent="Lock Type" IsChecked="false" />
+				<TextBlock Margin="5" DockPanel.Dock="Left" VerticalAlignment="Center" Text="Value:" />
+				<TextBox Margin="5" IsEnabled="True" Name="tbString" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextChanged="String_Changed" />
+			</DockPanel>
+			<ScrollViewer>
+				<TreeView Name="FostrianDatas" SelectionChanged="TreeView_Changed" Margin="5 5 5 5" />
+			</ScrollViewer>
+		</DockPanel>
+	</DockPanel>
+</Window>
